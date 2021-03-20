@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+body{
+    background: url('rain.jpeg') no-repeat top center;
+    background-size: cover;
+    height: 100vh;
+}
+.book{
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 0 590px;
+}
+#namebox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#genderbox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#agebox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#companyidbox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#departmentbox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#salarybox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+#addressbox{
+    padding: 7px;
+    border: 5px solid gray;
+    margin: 0;
+}
+.btn{
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 42%;
+    left: 40%;
+    margin-top: 22%;
+}
+#insert{
+    padding: 8px;
+    border: 2px solid gray;
+    margin: 0;
+    border-radius: 12px;
+}
+#select{
+    padding: 8px;
+    border: 2px solid gray;
+    margin: 0;
+    border-radius: 12px;
+}
+#update{
+    padding: 8px;
+    border: 2px solid gray;
+    margin: 0;
+    border-radius: 12px;
+}
+#delete{
+    padding: 8px;
+    border: 2px solid gray;
+    margin: 0;
+    border-radius: 12px;
+}
+.art{
+  width: 30%;
+  height: 77.4%;
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  margin-left: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  float: left;
+  font-style: italic;
+  background-color: rgb(247, 241, 241);
+  background: rgb(253, 251, 251); 
+  background: rgba(250, 240, 240, 0.5);
+}

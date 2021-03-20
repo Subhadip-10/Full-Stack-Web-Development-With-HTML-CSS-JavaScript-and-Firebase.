@@ -1,0 +1,97 @@
+<html>
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Employee Database App</title>
+    <body>
+        <div class="art">
+            <head><b>CaproHorn</b></head><br><br>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+        </aside>
+        </div>
+            
+        </div>
+        <div class="book">
+        <b>Name</b> <input id= "namebox" type="text" placeholder="Name Here..."></input><br><br>
+        <b>Gender</b> <input id= "genderbox" type="text"placeholder="Gender Here..."></input><br><br>
+        <b>Age</b> <input id= "agebox" type="text"placeholder="Age Here..."></input><br><br>
+        <b>CompanyId</b><input id= "companyidbox" type="text" placeholder="CompanyId Here..."></input><br><br>
+        <b>Department </b><input id= "departmentbox" type="text"placeholder="Department Here..."></input><br><br>
+        <b>Salary</b> <input id= "salarybox" type="text"placeholder="Salary Here..."></input><br><br>
+        <b>Address</b> <input id= "addressbox" type="text" placeholder="Address Here..."></input><br><br>
+        </div>
+        <br><br>
+        <div class="btn">
+            <button id="insert"><b>INSERT</b></button>
+            <button id="select"><b>SELECT</b></button>
+            <button id="update"><b>UPDATE</b></button>
+            <button id="delete"><b>DELETE</b></button>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+        <script id="javascript_page">
+                    var firebaseConfig = {
+            apiKey: "AIzaSyA18VFUoxdJMeKB010NmzFYWeS81nBwAZ0",
+            authDomain: "employeemanagement-ab95e.firebaseapp.com",
+            projectId: "employeemanagement-ab95e",
+            storageBucket: "employeemanagement-ab95e.appspot.com",
+            messagingSenderId: "239195530863",
+            appId: "1:239195530863:web:23e0bad3bf3a27080bcf9a"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        let namevalue, gendervalue, agevalue, companyidvalue, departmentvalue, salaryvalue,addressvalue
+
+        function ready(){
+            namevalue = document.getElementById('namebox').value
+            gendervalue = document.getElementById('genderbox').value
+            agevalue = document.getElementById('agebox').value
+            companyidvalue = document.getElementById('companyidbox').value
+            departmentvalue = document.getElementById('departmentbox').value
+            salaryvalue = document.getElementById('salarybox').value
+            addressvalue = document.getElementById('addressbox').value
+        }
+        document.getElementById('insert').onclick = function(){
+            ready()
+            firebase.database().ref('Employee/'+companyidvalue).set({
+                NameOfEmployee : namevalue,
+                Gender : gendervalue,
+                Age : agevalue,
+                CompanyId : companyidvalue,
+                Department : departmentvalue,
+                Salary : salaryvalue,
+                Address : addressvalue
+            })
+        }
+        document.getElementById("select").onclick = function(){
+            ready()
+            firebase.database().ref('Employee/'+companyidvalue).on('value',function(snapshot){
+                document.getElementById('namebox').value = snapshot.val().NameOfEmployee
+                document.getElementById('genderbox').value = snapshot.val().Gender
+                document.getElementById('agebox').value = snapshot.val().Age
+                document.getElementById('departmentbox').value = snapshot.val().Department
+                document.getElementById('salarybox').value = snapshot.val().Salary
+                document.getElementById('addressbox').value = snapshot.val().Address
+            })
+        }
+        document.getElementById('update').onclick = function(){
+            ready()
+            firebase.database().ref('Employee/'+companyidvalue).update({
+                NameOfEmployee : namevalue,
+                Gender : gendervalue,
+                Age : agevalue,
+                Department : departmentvalue,
+                Salary : salaryvalue,
+                Address : addressvalue
+            })
+        }
+        document.getElementById('delete').onclick = function(){
+            ready()
+            firebase.database().ref('Employee/'+companyidvalue).remove()
+        }
+        </script>
+    </body>
+</html>
